@@ -36,3 +36,20 @@
       </div>
       <button type="submit" class="btn btn-primary" id="tombol-ubah">Ubah</button>
     </form>
+      <script type="module">
+      import { ambiltugas, ubahtugas } from './main.js';
+
+      let tombolubah = document.getElementById('tombol-ubah');
+      let elementugas = document.getElementById('input-tugas');
+      let elemenstatus = document.getElementById('input-status');
+      let elemenprioritas = document.getElementById('input-prioritas');
+      let elementanggal = document.getElementById('input-tanggal');
+      const queryString = window.location.search;
+      const parameterURL = new URLSearchParams(queryString);
+      const docId = parameterURL.get('docId');
+      const Absensi = await ambiltugas(docId);
+
+      elementugas.value = Absensi.tugas;
+      elemenstatus.value = Absensi.status;
+      elemenprioritas.value = Absensi.prioritas;
+      elementanggal.value = Absensi.tanggal;
