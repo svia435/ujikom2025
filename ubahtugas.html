@@ -53,3 +53,12 @@
       elemenstatus.value = Absensi.status;
       elemenprioritas.value = Absensi.prioritas;
       elementanggal.value = Absensi.tanggal;
+tombolubah.addEventListener('click', async function(el) {
+        el.preventDefault();
+        await ubahtugas(docId, elementugas.value, elemenstatus.value, elemenprioritas.value, elementanggal.value);
+        window.location.href = 'index.html';
+      });
+    </script>
+</body>
+
+</html>
